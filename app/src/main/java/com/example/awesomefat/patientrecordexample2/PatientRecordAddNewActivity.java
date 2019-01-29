@@ -20,8 +20,11 @@ public class PatientRecordAddNewActivity extends AppCompatActivity {
         EditText middleInitialET = (EditText)this.findViewById(R.id.middleInitialET);
         EditText ageET = (EditText)this.findViewById(R.id.ageET);
 
-        PatientRecord pr = new PatientRecord(firstNameET.getText().toString(), lastNameET.getText().toString(),
-                middleInitialET.getText().toString().charAt(0), Integer.parseInt(ageET.getText().toString()));
+        String fname = firstNameET.getText().toString();
+        String lname = lastNameET.getText().toString();
+        char middleInitial = middleInitialET.getText().toString().charAt(0);
+        int age = Integer.parseInt(ageET.getText().toString());
+        PatientRecord pr = new PatientRecord(fname, lname, middleInitial, age);
         pr.display();
     }
 }

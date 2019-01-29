@@ -13,9 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PatientRecord pr = new PatientRecord("Mike", "Litman", 'B', 41);
-        pr.display();
-
 
     }
 

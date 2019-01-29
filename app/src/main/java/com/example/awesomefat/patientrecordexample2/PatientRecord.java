@@ -19,8 +19,8 @@ public class PatientRecord
 
     public void display()
     {
-        //System.out.println(this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")");
-        System.out.format("%s %c %s (%d)", this.first_name, this.middle_initial, this.last_name, this.age);
+        System.out.println(this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")");
+        //System.out.format("%s %c %s (%d)", this.first_name, this.middle_initial, this.last_name, this.age);
     }
 
     //Getter/Setter Methods
