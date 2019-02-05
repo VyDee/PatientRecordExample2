@@ -25,6 +25,7 @@ public class PatientRecordAddNewActivity extends AppCompatActivity {
         char middleInitial = middleInitialET.getText().toString().charAt(0);
         int age = Integer.parseInt(ageET.getText().toString());
         PatientRecord pr = new PatientRecord(fname, lname, middleInitial, age);
-        pr.display();
+        Core.addPatientRecord(pr);
+        this.finish();
     }
 }
