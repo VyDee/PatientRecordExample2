@@ -11,19 +11,24 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
-    private ListView listView;
+    private ListView lv;
+    private PatientRecordArrayAdapter aa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //initializes the array of Strings so there are place holder strings in there
+        for(int i = 0; i < Core.thePatients.length; i++)
+        {
+            Core.thePatients[i] = new PatientRecord();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("****** ON CREATE!!!!!!");
-
-        String[] bibleBooks = {"Matthew", "Mark", "Luke", "John", "Acts"};
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this, R.layout.list_view_row, bibleBooks);
-        ListView lv = (ListView)this.findViewById(R.id.listView);
-        lv.setAdapter(aa);
-        lv.invalidateViews(); //this line forces a list view to refresh!!!! hint hint
+        this.aa = new PatientRecordArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePatients);
+        this.lv = (ListView)this.findViewById(R.id.listView);
+        this.lv.setAdapter(aa);
 
 
     }
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
         System.out.println("****** ON RESUME!!!!!!");
+
     }
 
     @Override
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity
     protected void onRestart() {
         super.onRestart();
         System.out.println("****** ON RESTART!!!!!!");
+        this.aa.notifyDataSetChanged();
 
     }
 

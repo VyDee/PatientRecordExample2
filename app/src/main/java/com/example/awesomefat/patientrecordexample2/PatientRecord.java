@@ -17,6 +17,30 @@ public class PatientRecord
         this.age = age;
     }
 
+    public PatientRecord()
+    {
+        this.first_name = "FNAME";
+        this.middle_initial = 'I';
+        this.last_name = "LNAME";
+        this.age = 0;
+    }
+
+    public String getNameString()
+    {
+        return this.first_name + " " + this.middle_initial + " " + this.last_name;
+    }
+
+    public String getAgeString()
+    {
+        return "Age: (" + this.age + ")";
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")";
+    }
+
     public void display()
     {
         System.out.println(this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")");
