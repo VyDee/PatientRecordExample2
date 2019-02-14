@@ -1,14 +1,20 @@
 package com.example.awesomefat.patientrecordexample2;
 
-public class PatientRecord
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
+//Serializable needed by Firebase
+public class PatientRecord implements Serializable
 {
     //Fields
-    private String first_name;
-    private String last_name;
-    private char middle_initial;
-    private int age;
+    public String first_name;
+    public String last_name;
+    public int middle_initial; //Firebase doesn't support serializable chars
+    public int age;
 
     //Constructor
+
     public PatientRecord(String first_name, String last_name, char middle_initial, int age)
     {
         this.first_name = first_name;
@@ -25,22 +31,26 @@ public class PatientRecord
         this.age = 0;
     }
 
+    @Exclude
     public String getNameString()
     {
         return this.first_name + " " + this.middle_initial + " " + this.last_name;
     }
 
+    @Exclude
     public String getAgeString()
     {
         return "Age: (" + this.age + ")";
     }
 
-    @Override
+
+    @Exclude
     public String toString()
     {
         return this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")";
     }
 
+    @Exclude
     public void display()
     {
         System.out.println(this.first_name + " " + this.middle_initial + " " + this.last_name + " (" + this.age + ")");
@@ -48,11 +58,13 @@ public class PatientRecord
     }
 
     //Getter/Setter Methods
+    @Exclude
     public int getAge()
     {
         return this.age;
     }
 
+    @Exclude
     public void setAge(int age)
     {
         if(age >= 1)
@@ -61,15 +73,18 @@ public class PatientRecord
         }
     }
 
+    @Exclude
     public String getFirst_name() {
         return first_name;
     }
 
+    @Exclude
     public String getLast_name() {
         return last_name;
     }
 
+    @Exclude
     public char getMiddle_initial() {
-        return middle_initial;
+        return (char)middle_initial;
     }
 }
