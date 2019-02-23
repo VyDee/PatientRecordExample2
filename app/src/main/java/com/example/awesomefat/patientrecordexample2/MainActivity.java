@@ -27,11 +27,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("****** ON CREATE!!!!!!");
+
         this.aa = new PatientRecordArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePatients);
         this.lv = (ListView)this.findViewById(R.id.listView);
         this.lv.setAdapter(aa);
 
-
+        //Start Listening for changes to the database
+        Core.listenForDatabaseChanges();
     }
 
     @Override

@@ -25,8 +25,8 @@ public class PatientRecordArrayAdapter extends ArrayAdapter
                                      PatientRecord[] list)
     {
         super(context, textViewResourceId , list);
-        mContext = context;
-        patientRecordList = list;
+        this.mContext = context;
+        this.patientRecordList = list;
         this.textViewResourceId = textViewResourceId;
     }
 
@@ -52,7 +52,8 @@ public class PatientRecordArrayAdapter extends ArrayAdapter
         TextView ageTV = (TextView)listItem.findViewById(R.id.ageTV);
 
         nameTV.setText(pr.getNameString());
-        ageTV.setText(pr.getAgeString());
+        //ageTV.setText(pr.getAgeString());
+        ageTV.setText("HEllo world!!!!!!!!~" + position);
 
         //return the View after we have set all of the values
         return listItem;

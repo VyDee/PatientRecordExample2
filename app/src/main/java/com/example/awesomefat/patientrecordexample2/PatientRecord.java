@@ -1,10 +1,13 @@
 package com.example.awesomefat.patientrecordexample2;
 
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-//Serializable needed by Firebase
+//Serializable needed by Firebase - means this class can be converted to JSON
 public class PatientRecord implements Serializable
 {
     //Fields
@@ -30,6 +33,7 @@ public class PatientRecord implements Serializable
         this.last_name = "LNAME";
         this.age = 0;
     }
+
 
     @Exclude
     public String getNameString()
