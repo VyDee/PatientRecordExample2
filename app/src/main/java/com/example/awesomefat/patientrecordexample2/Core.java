@@ -45,7 +45,8 @@ public class Core
 
     public static void writePatientRecordToFirebase(PatientRecord pr)
     {
-        myRef.push().setValue(pr);
+        //static context
+        Core.myRef.push().setValue(pr);
     }
 
     public static void addPatientRecord(PatientRecord pr)

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         this.lv.setAdapter(aa);
 
         //Start Listening for changes to the database
-        Core.listenForDatabaseChanges();
+        Core.listenForDatabaseChanges(); //non-blocking!!!!
     }
 
     @Override

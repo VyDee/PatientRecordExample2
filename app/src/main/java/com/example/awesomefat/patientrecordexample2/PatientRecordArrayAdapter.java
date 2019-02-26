@@ -24,6 +24,7 @@ public class PatientRecordArrayAdapter extends ArrayAdapter
     public PatientRecordArrayAdapter(Context context, int textViewResourceId,
                                      PatientRecord[] list)
     {
+        //call my parent's constructor - MUST BE FIRST LINE
         super(context, textViewResourceId , list);
         this.mContext = context;
         this.patientRecordList = list;

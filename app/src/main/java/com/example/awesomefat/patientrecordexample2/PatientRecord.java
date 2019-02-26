@@ -38,6 +38,7 @@ public class PatientRecord implements Serializable
     @Exclude
     public String getNameString()
     {
+        //non-static context
         return this.first_name + " " + this.middle_initial + " " + this.last_name;
     }
 
