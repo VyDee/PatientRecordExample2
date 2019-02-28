@@ -13,7 +13,7 @@ import com.google.firebase.database.*;
 public class MainActivity extends AppCompatActivity
 {
     private ListView lv;
-    private PatientRecordArrayAdapter aa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println("****** ON CREATE!!!!!!");
 
-        this.aa = new PatientRecordArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePatients);
+        Core.aa = new PatientRecordArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePatients);
         this.lv = (ListView)this.findViewById(R.id.listView);
-        this.lv.setAdapter(aa);
+        this.lv.setAdapter(Core.aa);
 
         //Start Listening for changes to the database
         Core.listenForDatabaseChanges(); //non-blocking!!!!
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     protected void onRestart() {
         super.onRestart();
         System.out.println("****** ON RESTART!!!!!!");
-        this.aa.notifyDataSetChanged();
+        Core.aa.notifyDataSetChanged();
 
     }
 

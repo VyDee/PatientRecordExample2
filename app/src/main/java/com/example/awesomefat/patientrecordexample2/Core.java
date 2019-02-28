@@ -13,6 +13,7 @@ public class Core
     private static int numberOfPatients = 0;
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static DatabaseReference myRef = database.getReference("patients");
+    public static PatientRecordArrayAdapter aa;
 
     public static void listenForDatabaseChanges()
     {
@@ -23,14 +24,18 @@ public class Core
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 // Get Post object and use the values to update the UI
-                System.out.println(dataSnapshot);
+                System.out.println("****" + dataSnapshot.getValue());
+
+                //goes through each json object contained within
+                //the top level datasnapshot and turns it back
+                //into a PatientRecord
+                Core.numberOfPatients = 0;
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
                     PatientRecord pr = ds.getValue(PatientRecord.class);
-                    System.out.println("***** Data Changed");
-                    pr.display();
+                    Core.addPatientRecordLocal(pr);
                 }
-
+                Core.aa.notifyDataSetChanged();
             }
 
             @Override
@@ -49,12 +54,17 @@ public class Core
         Core.myRef.push().setValue(pr);
     }
 
-    public static void addPatientRecord(PatientRecord pr)
+    public static void addPatientRecordLocal(PatientRecord pr)
     {
         //encapsulated the logic of adding patient records here
         Core.thePatients[Core.numberOfPatients] = pr;
         Core.thePatientStrings[Core.numberOfPatients] = pr.toString();
         Core.numberOfPatients++;
+    }
+
+    public static void addPatientRecordDB(PatientRecord pr)
+    {
+        //Core.addPatientRecordLocal(pr);
         Core.writePatientRecordToFirebase(pr);
     }
 }
