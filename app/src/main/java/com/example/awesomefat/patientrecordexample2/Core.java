@@ -8,7 +8,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Core
 {
-    public static PatientRecord[] thePatients = new PatientRecord[1000];
+    public static PatientRecord[] thePatients = new PatientRecord[0];
     public static String[] thePatientStrings = new String[1000];
     private static int numberOfPatients = 0;
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
