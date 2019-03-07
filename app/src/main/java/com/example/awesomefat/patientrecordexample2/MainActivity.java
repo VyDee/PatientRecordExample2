@@ -20,14 +20,18 @@ public class MainActivity extends AppCompatActivity
     {
         System.out.println("*** Linked List Test");
         LinkedList ll = new LinkedList();
-        ll.addFront(7);
+        ll.addEnd(7);
         ll.addFront(2);
+        ll.addEnd(3);
+        ll.addAtIndex(13, 1);
+        ll.addAtIndex(23, 0);
+        ll.addAtIndex(33, 5);
         ll.display();
 
         //initializes the array of Strings so there are place holder strings in there
         for(int i = 0; i < Core.thePatients.length; i++)
         {
-            //Core.thePatients[i] = new PatientRecord();
+            Core.thePatients[i] = new PatientRecord();
         }
 
         super.onCreate(savedInstanceState);
