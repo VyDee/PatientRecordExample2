@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity
         ll.addAtIndex(13, 1);
         ll.addAtIndex(23, 0);
         ll.addAtIndex(33, 5);
+        System.out.println("***" + ll.removeEnd());
+        ll.display();
+        System.out.println("***" + ll.removeAtIndex(2));
+        ll.display();
+
+
         ll.display();
 
         //initializes the array of Strings so there are place holder strings in there

@@ -12,6 +12,55 @@ public class LinkedList
 
     }
 
+    public int removeEnd()
+    {
+        if(this.count == 1)
+        {
+            return this.removeFront();
+        }
+        else
+        {
+            //must have at leeeeaast 2 thingyyysss
+            Node currNode = this.head;
+            for(int i = 0; i < this.count-2; i++)
+            {
+                currNode = currNode.getNextNode();
+            }
+            //we are positioned at the element right before the one we want to remove
+            Node nodeToReturn = currNode.getNextNode();
+            currNode.setNextNode(null);
+            this.count--;
+            return nodeToReturn.getPayload();
+        }
+    }
+
+    public int removeAtIndex(int index)
+    {
+        if(index == 0)
+        {
+            return this.removeFront();
+        }
+        else if(index == this.count-1)
+        {
+            return this.removeEnd();
+        }
+        else
+        {
+            Node currNode = this.head;
+            //its somewhere in the middddddddllle
+            for(int i = 0; i < index-1; i++)
+            {
+                currNode = currNode.getNextNode();
+            }
+            //currNode is positioned right before node index
+            Node nodeToReturn = currNode.getNextNode();
+            currNode.setNextNode(nodeToReturn.getNextNode());
+            nodeToReturn.setNextNode(null);
+            this.count--;
+            return nodeToReturn.getPayload();
+        }
+    }
+
     public int removeFront()
     {
         Node currNode = this.head;
